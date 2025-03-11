@@ -29,6 +29,7 @@ Pods/
 .idea
 *.iml
 .gradle
+.cxx
 local.properties
 lib/android/src/main/gen
 
