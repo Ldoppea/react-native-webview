@@ -111,4 +111,27 @@ public class HybridNitroBridgeWebviewSpec_cxx {
       return bridge.create_Result_std__string_(__exceptionPtr)
     }
   }
+  
+  @inline(__always)
+  public final func addPayload(id: std.string, input: std.string) -> bridge.Result_void_ {
+    do {
+      try self.__implementation.addPayload(id: String(id), input: String(input))
+      return bridge.create_Result_void_()
+    } catch (let __error) {
+      let __exceptionPtr = __error.toCpp()
+      return bridge.create_Result_void_(__exceptionPtr)
+    }
+  }
+  
+  @inline(__always)
+  public final func getPayload(id: std.string) -> bridge.Result_std__string_ {
+    do {
+      let __result = try self.__implementation.getPayload(id: String(id))
+      let __resultCpp = std.string(__result)
+      return bridge.create_Result_std__string_(__resultCpp)
+    } catch (let __error) {
+      let __exceptionPtr = __error.toCpp()
+      return bridge.create_Result_std__string_(__exceptionPtr)
+    }
+  }
 }

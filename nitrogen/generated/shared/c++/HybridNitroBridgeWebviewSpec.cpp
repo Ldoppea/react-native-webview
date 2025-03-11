@@ -15,6 +15,8 @@ namespace margelo::nitro::bridgewebview {
     // load custom methods/properties
     registerHybrids(this, [](Prototype& prototype) {
       prototype.registerHybridMethod("multiply", &HybridNitroBridgeWebviewSpec::multiply);
+      prototype.registerHybridMethod("addPayload", &HybridNitroBridgeWebviewSpec::addPayload);
+      prototype.registerHybridMethod("getPayload", &HybridNitroBridgeWebviewSpec::getPayload);
     });
   }
 

@@ -37,5 +37,14 @@ namespace margelo::nitro::bridgewebview {
     auto __result = method(_javaPart, a, b, jni::make_jstring(input));
     return __result->toStdString();
   }
+  void JHybridNitroBridgeWebviewSpec::addPayload(const std::string& id, const std::string& input) {
+    static const auto method = javaClassStatic()->getMethod<void(jni::alias_ref<jni::JString> /* id */, jni::alias_ref<jni::JString> /* input */)>("addPayload");
+    method(_javaPart, jni::make_jstring(id), jni::make_jstring(input));
+  }
+  std::string JHybridNitroBridgeWebviewSpec::getPayload(const std::string& id) {
+    static const auto method = javaClassStatic()->getMethod<jni::local_ref<jni::JString>(jni::alias_ref<jni::JString> /* id */)>("getPayload");
+    auto __result = method(_javaPart, jni::make_jstring(id));
+    return __result->toStdString();
+  }
 
 } // namespace margelo::nitro::bridgewebview

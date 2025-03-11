@@ -52,6 +52,8 @@ namespace margelo::nitro::bridgewebview {
   public:
     // Methods
     std::string multiply(double a, double b, const std::string& input) override;
+    void addPayload(const std::string& id, const std::string& input) override;
+    std::string getPayload(const std::string& id) override;
 
   private:
     friend HybridBase;

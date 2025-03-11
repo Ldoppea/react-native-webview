@@ -15,6 +15,8 @@ public protocol HybridNitroBridgeWebviewSpec_protocol: HybridObject {
 
   // Methods
   func multiply(a: Double, b: Double, input: String) throws -> String
+  func addPayload(id: String, input: String) throws -> Void
+  func getPayload(id: String) throws -> String
 }
 
 /// See ``HybridNitroBridgeWebviewSpec``

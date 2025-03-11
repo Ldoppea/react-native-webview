@@ -49,6 +49,8 @@ namespace margelo::nitro::bridgewebview {
     public:
       // Methods
       virtual std::string multiply(double a, double b, const std::string& input) = 0;
+      virtual void addPayload(const std::string& id, const std::string& input) = 0;
+      virtual std::string getPayload(const std::string& id) = 0;
 
     protected:
       // Hybrid Setup

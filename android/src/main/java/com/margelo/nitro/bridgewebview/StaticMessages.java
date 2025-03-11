@@ -5,5 +5,5 @@ import java.util.Arrays;
 import java.util.ArrayList;
 
 public class StaticMessages {
-  static List<String> Messages = new ArrayList<String>(Arrays.asList("sup1", "sup2", "sup3"));
+  public static List<String> Messages = new ArrayList<String>(Arrays.asList("sup1", "sup2", "sup3"));
 }

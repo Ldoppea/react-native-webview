@@ -63,6 +63,20 @@ namespace margelo::nitro::bridgewebview {
       auto __value = std::move(__result.value());
       return __value;
     }
+    inline void addPayload(const std::string& id, const std::string& input) override {
+      auto __result = _swiftPart.addPayload(id, input);
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+    }
+    inline std::string getPayload(const std::string& id) override {
+      auto __result = _swiftPart.getPayload(id);
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
+    }
 
   private:
     NitroBridgeWebview::HybridNitroBridgeWebviewSpec_cxx _swiftPart;

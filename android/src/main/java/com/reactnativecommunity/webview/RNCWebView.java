@@ -47,6 +47,9 @@ import org.json.JSONObject;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import android.util.Log;
+
+import com.margelo.nitro.bridgewebview.StaticMessages;
 
 public class RNCWebView extends WebView implements LifecycleEventListener {
     protected @Nullable
@@ -300,6 +303,9 @@ public class RNCWebView extends WebView implements LifecycleEventListener {
     }
 
     protected void evaluateJavascriptWithFallback(String script) {
+        long millis = System.currentTimeMillis();
+        Log.d("YANNICK", "⏰ 12 - Java - forward to Webview " + millis);
+        Log.d("YANNICK222", StaticMessages.Messages.toString());
         evaluateJavascript(script, null);
     }
 
@@ -344,6 +350,8 @@ public class RNCWebView extends WebView implements LifecycleEventListener {
                     data.putString("data", message);
 
                     if (mMessagingJSModule != null) {
+                        long millis = System.currentTimeMillis();
+                        Log.d("YANNICK", "⏰ 8 - Java - dispatchDirectMessage " + millis);
                         dispatchDirectMessage(data);
                     } else {
                         dispatchEvent(webView, new TopMessageEvent(RNCWebViewWrapper.getReactTagFromWebView(webView), data));
@@ -449,6 +457,9 @@ public class RNCWebView extends WebView implements LifecycleEventListener {
         @JavascriptInterface
         public void postMessage(String message) {
             if (mWebView.getMessagingEnabled()) {
+                long millis = System.currentTimeMillis();
+                Log.d("YANNICK", "🌈 forward");
+                Log.d("YANNICK", "⏰ 7 - Java - forward to RN " + millis);
                 mWebView.onMessage(message, mWebView.getUrl());
             } else {
                 FLog.w(TAG, "ReactNativeWebView.postMessage method was called but messaging is disabled. Pass an onMessage handler to the WebView.");

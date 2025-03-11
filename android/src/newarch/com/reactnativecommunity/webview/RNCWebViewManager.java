@@ -31,6 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Map;
+import android.util.Log;
 
 @ReactModule(name = RNCWebViewManagerImpl.NAME)
 public class RNCWebViewManager extends ViewGroupManager<RNCWebViewWrapper>
@@ -448,6 +449,8 @@ public class RNCWebViewManager extends ViewGroupManager<RNCWebViewWrapper>
 
   @Override
   public void injectJavaScript(RNCWebViewWrapper view, String javascript) {
+      long millis = System.currentTimeMillis();
+      Log.d("YANNICK", "⏰ 14 - Java - Manager injectJavaScript " + millis);
       view.getWebView().evaluateJavascriptWithFallback(javascript);
   }
 
@@ -461,6 +464,8 @@ public class RNCWebViewManager extends ViewGroupManager<RNCWebViewWrapper>
       try {
         JSONObject eventInitDict = new JSONObject();
         eventInitDict.put("data", data);
+        long millis = System.currentTimeMillis();
+        Log.d("YANNICK", "⏰ 14 - Java - Manager postMessage " + millis);
         view.getWebView().evaluateJavascriptWithFallback(
           "(function () {" +
             "var event;" +

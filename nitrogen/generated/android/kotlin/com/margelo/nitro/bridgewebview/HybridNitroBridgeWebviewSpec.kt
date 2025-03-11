@@ -43,6 +43,14 @@ abstract class HybridNitroBridgeWebviewSpec: HybridObject() {
   @DoNotStrip
   @Keep
   abstract fun multiply(a: Double, b: Double, input: String): String
+  
+  @DoNotStrip
+  @Keep
+  abstract fun addPayload(id: String, input: String): Unit
+  
+  @DoNotStrip
+  @Keep
+  abstract fun getPayload(id: String): String
 
   private external fun initHybrid(): HybridData
 
