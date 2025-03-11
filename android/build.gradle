@@ -63,6 +63,7 @@ apply from: '../nitrogen/generated/android/NitroBridgeWebview+autolinking.gradle
 
 android {
     buildFeatures {
+        buildConfig true
         prefab true
     }
     if (supportsNamespace()) {
