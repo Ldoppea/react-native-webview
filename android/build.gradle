@@ -62,6 +62,9 @@ apply plugin: 'kotlin-android'
 apply from: '../nitrogen/generated/android/NitroBridgeWebview+autolinking.gradle'
 
 android {
+    buildFeatures {
+        prefab true
+    }
     if (supportsNamespace()) {
         namespace "com.reactnativecommunity.webview"
         buildFeatures {
@@ -137,4 +140,6 @@ dependencies {
     implementation 'com.facebook.react:react-native:+'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:${safeExtGet('kotlinVersion')}"
     implementation "androidx.webkit:webkit:${safeExtGet('webkitVersion')}"
+    // Add a dependency on NitroModules
+    implementation project(":react-native-nitro-modules")
 }
